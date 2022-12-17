@@ -1,0 +1,47 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.input_control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.input_control label {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+}
+.input_control input,
+.input_control textarea {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: rgb(208, 219, 242);
+}
+.input_control textarea {
+  resize: none;
+  height: 10rem;
+}
+.form_actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.form_actions button {
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  transition: all 1s;
+}
+
+.form_actions button:hover {
+  background-color: rgb(168, 165, 165);
+}
