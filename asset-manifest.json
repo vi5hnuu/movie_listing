@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/.github.io/movie_listing/static/css/main.14d6a263.css",
-    "main.js": "/.github.io/movie_listing/static/js/main.bcfc48a7.js",
-    "static/media/error.gif": "/.github.io/movie_listing/static/media/error.a9865eb8e610c5f083c2.gif",
-    "index.html": "/.github.io/movie_listing/index.html",
-    "main.14d6a263.css.map": "/.github.io/movie_listing/static/css/main.14d6a263.css.map",
-    "main.bcfc48a7.js.map": "/.github.io/movie_listing/static/js/main.bcfc48a7.js.map"
+    "main.css": "/movie_listing/static/css/main.14d6a263.css",
+    "main.js": "/movie_listing/static/js/main.1f84dfe5.js",
+    "static/media/error.gif": "/movie_listing/static/media/error.a9865eb8e610c5f083c2.gif",
+    "index.html": "/movie_listing/index.html",
+    "main.14d6a263.css.map": "/movie_listing/static/css/main.14d6a263.css.map",
+    "main.1f84dfe5.js.map": "/movie_listing/static/js/main.1f84dfe5.js.map"
   },
   "entrypoints": [
     "static/css/main.14d6a263.css",
-    "static/js/main.bcfc48a7.js"
+    "static/js/main.1f84dfe5.js"
   ]
 }
