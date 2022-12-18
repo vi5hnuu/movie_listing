@@ -70,8 +70,8 @@ function App() {
         childData.id = childKey
         movies.push(childData)
       });
-      setMovies(movies)
       setIsFetchLoading(false)
+      setMovies(movies)
     }, {
       onlyOnce: true
     });
@@ -80,6 +80,7 @@ function App() {
   useEffect(() => {
     fetchMoviesHandler()
   }, [fetchMoviesHandler])
+
   return <Fragment>
     <section className={classes.movie_fetch_add}>
       <div className={classes.actions}>

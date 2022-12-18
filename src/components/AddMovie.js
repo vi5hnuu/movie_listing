@@ -2,8 +2,6 @@ import { useRef } from 'react'
 import classes from './AddMovie.module.css'
 
 function AddMovie(props) {
-    //https://console.firebase.google.com/project/movielisting-275b2/database/movielisting-275b2-default-rtdb/data/~2F
-
     const titleRef = useRef()
     const opn_textRef = useRef()
     const rdateRef = useRef()

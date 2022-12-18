@@ -2,6 +2,8 @@ import classes from './MoviesList.module.css'
 import Movie from './Movie'
 
 function MoviesList(props) {
+    console.log('Movies list');
+    console.log(props.movies);
     return <ul className={classes.moviesList}>
         {
             props.movies.map((movie) => {
