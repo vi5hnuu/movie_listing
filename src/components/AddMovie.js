@@ -15,13 +15,17 @@ function AddMovie(props) {
             openingText: opn_textRef.current.value,
             releaseDate: rdateRef.current.value
         }
+        if ((!movie.title || movie.title.trim().length === 0) ||
+            (!movie.openingText || movie.openingText.trim().length === 0)) {
+            return null;
+        }
         props.onAddMovie(movie)
     }
 
     return <form className={classes.form} onSubmit={processMovieDataHandler}>
         <div className={classes.input_control}>
             <label htmlFor='title'>Title</label>
-            <input ref={titleRef} id='title' type='text'></input>
+            <input ref={titleRef} id='title' type='text' placeholder='Avengers'></input>
         </div>
         <div className={classes.input_control}>
             <label htmlFor='opening_text'>Opening Text</label>
