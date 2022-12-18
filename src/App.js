@@ -7,7 +7,7 @@ import NoMovie from './components/NoMovie';
 import Error from './components/Error';
 import AddMovie from './components/AddMovie';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, push, onValue } from 'firebase/database';
+import { getDatabase, ref, set, push, onValue, get, child } from 'firebase/database';
 import conf from './conf'
 
 //cors problem
@@ -45,9 +45,11 @@ function App() {
 
   }
 
+
+
   const fetchMoviesHandler = useCallback(async () => {
     setIsFetchLoading(true)
-    setError(null)
+    // setError(null)
     // try {
     //   //axious also throws error for bad status codes
     //   const response = await axios.get('https://swapi.dev/api/films')
@@ -60,10 +62,31 @@ function App() {
     // }
 
     //
+    console.log('fetching movies');
+    const dbRef = ref(getDatabase());
+    const snapshots = await get(child(dbRef, 'movies'))
+    if (snapshots.exists()) {
+      const movies = []
+      snapshots.forEach((childSnapshot) => {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
+        childData.id = childKey
+        movies.push(childData)
+      });
+      setMovies(movies)
+    } else {
+      setMovies([])
+    }
+    setIsFetchLoading(false)
+  }, [])
+
+  useEffect(() => {
+    // fetchMoviesHandler()
     const db = getDatabase();
     const dbRef = ref(db, 'movies');
-    const movies = []
     onValue(dbRef, (snapshot) => {
+      console.log('event on db');
+      const movies = []
       snapshot.forEach((childSnapshot) => {
         const childKey = childSnapshot.key;
         const childData = childSnapshot.val();
@@ -72,14 +95,8 @@ function App() {
       });
       setIsFetchLoading(false)
       setMovies(movies)
-    }, {
-      onlyOnce: true
-    });
+    })
   }, [])
-
-  useEffect(() => {
-    fetchMoviesHandler()
-  }, [fetchMoviesHandler])
 
   return <Fragment>
     <section className={classes.movie_fetch_add}>
